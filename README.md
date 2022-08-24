@@ -57,21 +57,20 @@ O código será desenvolvido seguindo uma interpretação de arquitetura limpa
 
 #### Detalhamento
 Entities:
-	- Delivery
-	- Drone
-	- Keyboard
-	- Mouse
+- Delivery
+- Drone
+- Keyboard
+- Mouse
+
 Features:
-	- GetDeliveryStatus
-	- RequestDelivery
-	- CancelDelivery
-	- UpdateDelivery
-
-	- GetLiveData
-	- GetNavData
-
-	- KeyboardControlDrone
-	- MouseControlDrone
+- GetDeliveryStatus
+- RequestDelivery
+- CancelDelivery
+- UpdateDelivery
+- GetLiveData
+- GetNavData
+- KeyboardControlDrone
+- MouseControlDrone
 
 ### Membros envolvidos no projeto
 1. **Raphael Marchetti Calciolari** - RA: 19.00828-7
