@@ -14,12 +14,34 @@ O objetivo final do projeto é desenvolver uma API no Raspberry Pi 3 que se comu
 Os gráficos de navdata e vídeo em tempo real coletados pelo drone serão exibidos em uma das rotas da API hosteada pelo Raspberry Pi 3.
 
 ## Controle inicial do AR Drone 2.0 através do Raspberry Pi 3
+### Movimentação por teclado:
+  - W - drone se desloca para a frente de onde ele está direcionado
+  - S - drone se desloca para trás de onde ele está direcionado
+  - A - drone se desloca lateralmente para a esquerda de onde ele está direcionado
+  - D - drone se desloca lateralmente para a direita de onde ele está direcionado
+  - Espaço - drone sobe
+  - Shift - drone desce
+  - Q - drone gira no sentido anti-horário
+  - E - drone gira no sentido horário
+
+### Movimentação por mouse:
+  - Mouse se movimenta horizontalmente - drone gira no sentido correspondente
+  - Mouse se movimenta verticalmente - drone se desloca para frente ou para trás de acordo com a intensidade.
+  - Scroll do mouse - drone sobe (scroll para cima) ou desce (scroll para baixo)
 
 ## API
 - GET ```/navdata``` - retorna informações de navdata do drone tais como status, posição e velocidade.
 - GET ```/live``` - exibe o vídeo capturado pela câmera do drone em tempo real.
 - GET ```/delivery/status``` - exibe informações relativas ao progresso da entrega atual tais como, se foi entregue, posição, velocidade e progresso.
-- POST ```/delivery/request``` No body: position=<coordinates>(&hight=<ground-distance>&flight-speed=<speed>&arrival-time=<time-utc>)
+- POST ```/delivery/request``` - body data convention:
+  ```
+  {
+    "flight-speed" : "speed in kilometers per second",
+    "hight" : "ground distance in centimeters",
+    "position" : "coordinates lat & lon",
+    "scheduled-delivery-time" : "time in HH:MM:SS that the drone will arrive at the destination"
+  }
+  ```
 
 ### Membros envolvidos no projeto
 1. **Raphael Marchetti Calciolari** - RA: 19.00828-7
