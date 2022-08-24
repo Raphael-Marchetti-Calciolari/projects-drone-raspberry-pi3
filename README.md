@@ -34,16 +34,15 @@ Os gráficos de navdata e vídeo em tempo real coletados pelo drone serão exibi
   - Botão direito - Decolar
 
 ## API
-- GET ```/navdata``` - retorna informações de navdata do drone tais como status, posição e velocidade.
-- GET ```/live``` - exibe o vídeo capturado pela câmera do drone em tempo real.
-- GET ```/delivery/status``` - exibe informações relativas ao progresso da entrega atual tais como, se foi entregue, posição, velocidade e progresso.
-- POST ```/delivery/request``` - body data convention:
+- GET ```/navdata?droneId=<id>``` - retorna informações de navdata do drone tais como status, posição e velocidade.
+- GET ```/live?droneId=<id>``` - exibe o vídeo capturado pela câmera do drone em tempo real.
+- GET ```/delivery/status?deliveryId=<id>&droneId=<id>``` - exibe informações relativas ao progresso da entrega tais como, se foi entregue, posição, velocidade e progresso.
+- POST ```/delivery/request?droneId=<id>``` - body data convention:
   ```
   {
-    "flight-speed" : "speed in kilometers per second",
-    "height" : "ground distance in centimeters",
-    "position" : "coordinates lat & lon",
-    "scheduled-delivery-time" : "time in HH:MM:SS that the drone will arrive at the destination"
+    "flight-speed" : "speed in kilometers per second during flight",
+    "height" : "ground distance in centimeters during flight",
+    "position" : "coordinates in x,y and z in centimeters",
   }
   ```
 
