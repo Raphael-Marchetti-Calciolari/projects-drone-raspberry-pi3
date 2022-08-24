@@ -46,6 +46,15 @@ Os gráficos de navdata e vídeo em tempo real coletados pelo drone serão exibi
   }
   ```
 
+## Arquitetura
+O código será desenvolvido seguindo uma interpretação de arquitetura limpa
+
+### Definição padrão
+![Default Definition](https://miro.medium.com/max/1400/1*0u-ekVHFu7Om7Z-VTwFHvg.png)
+
+### Interpretação que será utilizada
+![Reference Definition](https://raw.githubusercontent.com/PropysMaua/ProjetoLPARQ/main/docFiles/BackEnd-Arch.png)
+
 ### Membros envolvidos no projeto
 1. **Raphael Marchetti Calciolari** - RA: 19.00828-7
 2. **Martin Ropke** - RA: 19.01592-5
