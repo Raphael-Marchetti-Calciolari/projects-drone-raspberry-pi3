@@ -23,11 +23,15 @@ Os gráficos de navdata e vídeo em tempo real coletados pelo drone serão exibi
   - Shift - drone desce
   - Q - drone gira no sentido anti-horário
   - E - drone gira no sentido horário
+  - T - decolagem do drone (Takeoff)
+  - L - pouso do drone (Land)
 
 ### Movimentação por mouse:
   - Mouse se movimenta horizontalmente - drone gira no sentido correspondente
   - Mouse se movimenta verticalmente - drone se desloca para frente ou para trás de acordo com a intensidade.
   - Scroll do mouse - drone sobe (scroll para cima) ou desce (scroll para baixo)
+  - Botão esquerdo - Pousar
+  - Botão direito - Decolar
 
 ## API
 - GET ```/navdata``` - retorna informações de navdata do drone tais como status, posição e velocidade.
