@@ -55,6 +55,24 @@ O código será desenvolvido seguindo uma interpretação de arquitetura limpa
 ### Interpretação que será utilizada
 ![Reference Definition](https://raw.githubusercontent.com/PropysMaua/ProjetoLPARQ/main/docFiles/BackEnd-Arch.png)
 
+#### Detalhamento
+Entities:
+	- Delivery
+	- Drone
+	- Keyboard
+	- Mouse
+Features:
+	- GetDeliveryStatus
+	- RequestDelivery
+	- CancelDelivery
+	- UpdateDelivery
+
+	- GetLiveData
+	- GetNavData
+
+	- KeyboardControlDrone
+	- MouseControlDrone
+
 ### Membros envolvidos no projeto
 1. **Raphael Marchetti Calciolari** - RA: 19.00828-7
 2. **Martin Ropke** - RA: 19.01592-5
