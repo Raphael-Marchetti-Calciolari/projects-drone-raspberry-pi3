@@ -41,7 +41,7 @@ Os gráficos de navdata e vídeo em tempo real coletados pelo drone serão exibi
   ```
   {
     "flight-speed" : "speed in kilometers per second",
-    "hight" : "ground distance in centimeters",
+    "height" : "ground distance in centimeters",
     "position" : "coordinates lat & lon",
     "scheduled-delivery-time" : "time in HH:MM:SS that the drone will arrive at the destination"
   }
