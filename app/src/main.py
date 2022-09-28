@@ -1,5 +1,6 @@
 from dis import findlinestarts
 import time
+import pygame
 from pyardrone import ARDrone
 
 drone = ARDrone()
