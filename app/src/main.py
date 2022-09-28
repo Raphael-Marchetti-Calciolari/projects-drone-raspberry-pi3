@@ -1,27 +1,28 @@
 from dis import findlinestarts
 import time
-import pygame
 from pyardrone import ARDrone
+from sample import sample
 
 drone = ARDrone()
 landed_flag = False
 
 try:
-    drone.navdata_ready.wait()
+    sample(drone)
+    # drone.navdata_ready.wait()
 
-    print('Decolando...')
-    while not drone.state.fly_mask:
-        drone.takeoff()
+    # print('Decolando...')
+    # while not drone.state.fly_mask:
+    #     drone.takeoff()
 
-    print('Decolou!')
-    time.sleep(5)
-    print('Pousando...')
+    # print('Decolou!')
+    # time.sleep(5)
+    # print('Pousando...')
 
-    while drone.state.fly_mask:
-        drone.land()
-        landed_flag = True
+    # while drone.state.fly_mask:
+    #     drone.land()
+    #     landed_flag = True
 
-    print('Pousou!')
+    # print('Pousou!')
 
 except KeyboardInterrupt:
     print('Pouso forçado por interrupção do keyboard')
@@ -34,3 +35,4 @@ finally:
         drone.emergency()
     else:
         print('Drone already landed')
+

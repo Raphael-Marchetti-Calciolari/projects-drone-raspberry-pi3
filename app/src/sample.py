@@ -1,44 +1,12 @@
-#!/usr/bin/env python
-
-# Copyright (c) 2011 Bastian Venthur
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-# THE SOFTWARE.
-
-
-"""Demo app for the AR.Drone.
-
-This simple application allows to control the drone and see the drone's video
-stream.
-"""
-
-
 import pygame
+from pyardrone import ARDrone
 
-import libardrone
-
-
-def main():
+def sample(drone: ARDrone):
     pygame.init()
     W, H = 320, 240
     screen = pygame.display.set_mode((W, H))
-    drone = libardrone.ARDrone()
     clock = pygame.time.Clock()
+    speed = 0.1
     running = True
     while running:
         for event in pygame.event.get():
@@ -48,7 +16,8 @@ def main():
                 drone.hover()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    drone.reset()
+                    # drone.reset()
+                    print('Drone reseted')
                     running = False
                 # takeoff / land
                 elif event.key == pygame.K_RETURN:
@@ -57,48 +26,59 @@ def main():
                     drone.land()
                 # emergency
                 elif event.key == pygame.K_BACKSPACE:
-                    drone.reset()
+                    # drone.reset()
+                    print('Drone reseted')
                 # forward / backward
                 elif event.key == pygame.K_w:
-                    drone.move_forward()
+                    drone.move(forward=speed)
                 elif event.key == pygame.K_s:
-                    drone.move_backward()
+                    drone.move(backward=speed)
                 # left / right
                 elif event.key == pygame.K_a:
-                    drone.move_left()
+                    drone.move(left=speed)
                 elif event.key == pygame.K_d:
-                    drone.move_right()
+                    drone.move(right=speed)
                 # up / down
                 elif event.key == pygame.K_UP:
-                    drone.move_up()
+                    drone.move(up=speed)
                 elif event.key == pygame.K_DOWN:
-                    drone.move_down()
+                    drone.move(down=speed)
                 # turn left / turn right
-                elif event.key == pygame.K_LEFT:
-                    drone.turn_left()
-                elif event.key == pygame.K_RIGHT:
-                    drone.turn_right()
+                elif event.key == pygame.K_q:
+                    drone.move(ccw=speed)
+                elif event.key == pygame.K_e:
+                    drone.move(cw=speed)
                 # speed
                 elif event.key == pygame.K_1:
-                    drone.speed = 0.1
+                    speed = 0.1
+                    print(f'Current speed: {speed}')
                 elif event.key == pygame.K_2:
-                    drone.speed = 0.2
+                    speed = 0.2
+                    print(f'Current speed: {speed}')
                 elif event.key == pygame.K_3:
-                    drone.speed = 0.3
+                    speed = 0.3
+                    print(f'Current speed: {speed}')
                 elif event.key == pygame.K_4:
-                    drone.speed = 0.4
+                    speed = 0.4
+                    print(f'Current speed: {speed}')
                 elif event.key == pygame.K_5:
-                    drone.speed = 0.5
+                    speed = 0.5
+                    print(f'Current speed: {speed}')
                 elif event.key == pygame.K_6:
-                    drone.speed = 0.6
+                    speed = 0.6
+                    print(f'Current speed: {speed}')
                 elif event.key == pygame.K_7:
-                    drone.speed = 0.7
+                    speed = 0.7
+                    print(f'Current speed: {speed}')
                 elif event.key == pygame.K_8:
-                    drone.speed = 0.8
+                    speed = 0.8
+                    print(f'Current speed: {speed}')
                 elif event.key == pygame.K_9:
-                    drone.speed = 0.9
+                    speed = 0.9
+                    print(f'Current speed: {speed}')
                 elif event.key == pygame.K_0:
-                    drone.speed = 1.0
+                    speed = 1.0
+                    print(f'Current speed: {speed}')
 
         try:
             surface = pygame.image.fromstring(drone.image, (W, H), 'RGB')
@@ -116,9 +96,5 @@ def main():
         clock.tick(50)
         pygame.display.set_caption("FPS: %.2f" % clock.get_fps())
 
-    print "Shutting down...",
-    drone.halt()
-    print "Ok."
-
-if __name__ == '__main__':
-    main()
+    print ("Shutting down...", drone.halt())
+    print ("Ok.")
