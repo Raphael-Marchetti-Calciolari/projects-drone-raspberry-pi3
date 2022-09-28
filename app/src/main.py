@@ -7,7 +7,6 @@ drone = ARDrone()
 landed_flag = False
 
 try:
-    time.sleep(20000)
     drone.navdata_ready.wait()
 
     print('Decolando...')
