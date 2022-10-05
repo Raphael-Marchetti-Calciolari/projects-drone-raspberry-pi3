@@ -13,20 +13,23 @@ class DronePyGame:
         self.speed = 0.1
         self.running = True
 
-        self.forwardKeyBind = pygame.K_w # Key W is pressed
-        self.backwardKeyBind = pygame.K_s # Key S is pressed
-        self.leftKeyBind = pygame.K_a # Key A is pressed
-        self.rightKeyBind = pygame.K_d # Key D is pressed
-        self.upKeyBind= pygame.K_UP # Key UP is pressed
-        self.downKeyBind = pygame.K_DOWN # Key DOWN is pressed
-        self.cwKeyBind = pygame.K_e # Key E is pressed
-        self.ccwKeyBind = pygame.K_q # Key Q is pressed
+        self.takeoffKeyBind = pygame.K_RETURN
+        self.landKeyBind = pygame.K_SPACE
+
+        self.forwardKeyBind = pygame.K_w
+        self.backwardKeyBind = pygame.K_s
+        self.leftKeyBind = pygame.K_a
+        self.rightKeyBind = pygame.K_d
+        self.upKeyBind= pygame.K_UP
+        self.downKeyBind = pygame.K_DOWN
+        self.cwKeyBind = pygame.K_e
+        self.ccwKeyBind = pygame.K_q
 
     def captureInput(self):
         while self.running:
             for event in pygame.event.get():
-                print(f"Event: {event}")
                 pressed_keys = pygame.key.get_pressed()
+                #print(f"Event: {event}")
 
                 if hasattr(event, 'type'):
 
@@ -34,24 +37,39 @@ class DronePyGame:
                         self.running = False
 
                     elif event.type == pygame.KEYUP:
-                        print('Hovering')
+                        print('Hovering') # else no final
                         # self.drone.hover()
 
-                    if event.type == pygame.KEYDOWN:
-                        if event.key == pygame.K_RETURN:
-                            print('Takeoff')
-                            # self.drone.takeoff()
                 else:
                     print('No type attribute')
 
                 if (hasattr(event, 'text')):
-
-                    if pressed_keys[pygame.K_SPACE]:
+                    
+                    # Start and stop
+                    if pressed_keys[self.takeoffKeyBind]:
+                        print('Takeoff')
+                    if pressed_keys[self.landKeyBind]:
                         print('Drone Landed')
                         # self.drone.land()
 
-                    
-
+                    # Movement
+                    if pressed_keys[self.forwardKeyBind]:
+                        print('Foward')
+                    if pressed_keys[self.backwardKeyBind]:
+                        print('Backward')
+                    if pressed_keys[self.leftKeyBind]:
+                        print('Left')
+                    if pressed_keys[self.rightKeyBind]:
+                        print('Right')
+                    if pressed_keys[self.cwKeyBind]:
+                        print('Rotate CW')
+                    if pressed_keys[self.ccwKeyBind]:
+                        print('Rotate CCW')
+                    if pressed_keys[self.upKeyBind]:
+                        print('UP')
+                    if pressed_keys[self.downKeyBind]:
+                        print('DOWN')
+                        
                     # speed
                     if event.text in ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]:
                         self.speed = int(event.text)/10 if event.text != "0" else 1
