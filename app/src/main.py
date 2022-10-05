@@ -2,12 +2,16 @@ from dis import findlinestarts
 import time
 from pyardrone import ARDrone
 from sample import sample
+from dronePyGame import DronePyGame
 
 drone = ARDrone()
 landed_flag = False
 
 try:
-    sample(drone)
+    print('Main program')
+    DronePyGame().captureInput()
+    
+    # sample(drone)
     # drone.navdata_ready.wait()
 
     # print('Decolando...')
