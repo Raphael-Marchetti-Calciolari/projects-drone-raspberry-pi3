@@ -3,7 +3,7 @@ import time
 from pyardrone import ARDrone
 
 class DronePyGame:
-    def __init__(self, drone: ARDrone = ARDrone()) -> None:
+    def __init__(self, drone: ARDrone) -> None:
         pygame.init()
         W, H = 320, 240
         self.screen = pygame.display.set_mode((W, H))
@@ -52,16 +52,17 @@ class DronePyGame:
 
                 # Movement management
                 if (
-                    pressed_keys[self.forwardKeyBind] and
-                    pressed_keys[self.backwardKeyBind] and
-                    pressed_keys[self.leftKeyBind] and
-                    pressed_keys[self.rightKeyBind] and
-                    pressed_keys[self.upKeyBind] and
-                    pressed_keys[self.downKeyBind] and
-                    pressed_keys[self.cwKeyBind] and
+                    pressed_keys[self.forwardKeyBind] or
+                    pressed_keys[self.backwardKeyBind] or
+                    pressed_keys[self.leftKeyBind] or
+                    pressed_keys[self.rightKeyBind] or
+                    pressed_keys[self.upKeyBind] or
+                    pressed_keys[self.downKeyBind] or
+                    pressed_keys[self.cwKeyBind] or
                     pressed_keys[self.ccwKeyBind]
                 ):
                     self.isMoving = True
+
                     self.drone.move(
                         forward = pressed_keys[self.forwardKeyBind] * self.speed,
                         backward = pressed_keys[self.backwardKeyBind] * self.speed,
@@ -77,23 +78,25 @@ class DronePyGame:
                     self.isMoving = False
                     self.drone.hover()
 
+                print(
+                    f"F={pressed_keys[self.forwardKeyBind] * self.speed} B={pressed_keys[self.backwardKeyBind] * self.speed} L={pressed_keys[self.leftKeyBind] * self.speed} R={pressed_keys[self.rightKeyBind] * self.speed}")
                 # Debug logs
-                if pressed_keys[self.forwardKeyBind]:
-                    print('Foward')
-                if pressed_keys[self.backwardKeyBind]:
-                    print('Backward')
-                if pressed_keys[self.leftKeyBind]:
-                    print('Left')
-                if pressed_keys[self.rightKeyBind]:
-                    print('Right')
-                if pressed_keys[self.cwKeyBind]:
-                    print('Rotate CW')
-                if pressed_keys[self.ccwKeyBind]:
-                    print('Rotate CCW')
-                if pressed_keys[self.upKeyBind]:
-                    print('UP')
-                if pressed_keys[self.downKeyBind]:
-                    print('DOWN')
+                # if pressed_keys[self.forwardKeyBind]:
+                #     print('Foward')
+                # if pressed_keys[self.backwardKeyBind]:
+                #     print('Backward')
+                # if pressed_keys[self.leftKeyBind]:
+                #     print('Left')
+                # if pressed_keys[self.rightKeyBind]:
+                #     print('Right')
+                # if pressed_keys[self.cwKeyBind]:
+                #     print('Rotate CW')
+                # if pressed_keys[self.ccwKeyBind]:
+                #     print('Rotate CCW')
+                # if pressed_keys[self.upKeyBind]:
+                #     print('UP')
+                # if pressed_keys[self.downKeyBind]:
+                #     print('DOWN')
                         
             # try:
             #     surface = pygame.image.fromstring(self.drone.image, (W, H), 'RGB')

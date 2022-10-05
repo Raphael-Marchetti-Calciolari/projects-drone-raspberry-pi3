@@ -1,15 +1,17 @@
 from dis import findlinestarts
 import time
-from pyardrone import ARDrone
+from pyardrone import ARDrone, at
 from sample import sample
 from dronePyGame import DronePyGame
 
 drone = ARDrone()
+drone.send(at.CONFIG('general:navdata_demo', True))
 landed_flag = False
 
 try:
     print('Main program')
-    DronePyGame().captureInput()
+    dronePyGame = DronePyGame(drone)
+    dronePyGame.captureInput()
     
     # sample(drone)
     # drone.navdata_ready.wait()
