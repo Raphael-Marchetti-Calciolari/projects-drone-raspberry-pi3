@@ -9,7 +9,7 @@ class DronePyGame:
         self.screen = pygame.display.set_mode((W, H))
         self.clock = pygame.time.Clock()
 
-        # self.drone = drone
+        self.drone = drone
         self.speed = 0.1
         self.isMoving = False
         self.running = True
@@ -46,10 +46,10 @@ class DronePyGame:
 
                 # Start and stop flying
                 if pressed_keys[self.takeoffKeyBind]:
-                    # self.drone.takeoff()
+                    self.drone.takeoff()
                     pass
                 if pressed_keys[self.landKeyBind]:
-                    # self.drone.land()
+                    self.drone.land()
                     pass
 
                 # Movement management
