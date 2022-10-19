@@ -8,6 +8,144 @@
         "env": []
     },
     {
+        "id": "713bc7d728ad3f74",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "7b7a1c75732f764a",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "ce9b0713c0f40375",
+        "type": "ui_group",
+        "name": "Drone Speed",
+        "tab": "713bc7d728ad3f74",
+        "order": 2,
+        "disp": false,
+        "width": "24",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "27df55ff8de5e7e0",
+        "type": "ui_group",
+        "name": "Drone Altitude",
+        "tab": "713bc7d728ad3f74",
+        "order": 3,
+        "disp": false,
+        "width": "24",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a0e49cdaba43d581",
+        "type": "ui_group",
+        "name": "Battery level",
+        "tab": "713bc7d728ad3f74",
+        "order": 1,
+        "disp": false,
+        "width": "24",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "0bbd239a2c0c765b",
         "type": "http in",
         "z": "7bb47c5b8f98d12b",
@@ -217,46 +355,5 @@
         "x": 470,
         "y": 320,
         "wires": []
-    },
-    {
-        "id": "ce9b0713c0f40375",
-        "type": "ui_group",
-        "name": "Drone Speed",
-        "tab": "713bc7d728ad3f74",
-        "order": 2,
-        "disp": false,
-        "width": "24",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "27df55ff8de5e7e0",
-        "type": "ui_group",
-        "name": "Drone Altitude",
-        "tab": "713bc7d728ad3f74",
-        "order": 3,
-        "disp": false,
-        "width": "24",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "a0e49cdaba43d581",
-        "type": "ui_group",
-        "name": "Battery level",
-        "tab": "713bc7d728ad3f74",
-        "order": 1,
-        "disp": false,
-        "width": "24",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "713bc7d728ad3f74",
-        "type": "ui_tab",
-        "name": "Home",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
     }
 ]
