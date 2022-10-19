@@ -1,9 +1,12 @@
 import pygame
 import time
-from pyardrone import ARDrone
+from pyardrone import ARDrone, at
 
 class DronePyGame:
-    def __init__(self, drone: ARDrone) -> None:
+    def __init__(self, drone: ARDrone = ARDrone()) -> None:
+        drone.send(at.CONFIG('general:navdata_demo', True))
+        drone.navdata_ready.wait() # ARRUMAR ESSA MERDA
+
         pygame.init()
         W, H = 320, 240
         self.screen = pygame.display.set_mode((W, H))
@@ -26,8 +29,13 @@ class DronePyGame:
         self.cwKeyBind = pygame.K_e
         self.ccwKeyBind = pygame.K_q
 
+
+    def getBatteryLevel(self):
+        return self.drone.navdata.demo.vbat_flying_percentage
+
     def captureInput(self):
         while self.running:
+            print(f"Altitude: {self.drone.navdata.demo.altitude}")
             for event in pygame.event.get():
                 pressed_keys = pygame.key.get_pressed()
 

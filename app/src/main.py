@@ -10,7 +10,7 @@ landed_flag = False
 
 try:
     print('Main program')
-    dronePyGame = DronePyGame(drone)
+    dronePyGame = DronePyGame()
     dronePyGame.captureInput()
     
     # sample(drone)
@@ -34,6 +34,9 @@ except KeyboardInterrupt:
     print('Pouso forçado por interrupção do keyboard')
     drone.land()
     landed_flag = True
+
+except Exception as e:
+    print(f"Erro: {e}")
 
 finally:
     if not landed_flag:
