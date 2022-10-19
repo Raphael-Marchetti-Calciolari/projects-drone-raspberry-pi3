@@ -127,7 +127,7 @@
         "type": "ui_group",
         "name": "Drone Speed",
         "tab": "713bc7d728ad3f74",
-        "order": 1,
+        "order": 2,
         "disp": false,
         "width": "24",
         "collapse": false,
@@ -138,7 +138,7 @@
         "type": "ui_group",
         "name": "Drone Altitude",
         "tab": "713bc7d728ad3f74",
-        "order": 2,
+        "order": 3,
         "disp": false,
         "width": "24",
         "collapse": false,
@@ -149,9 +149,9 @@
         "type": "ui_group",
         "name": "Battery level",
         "tab": "713bc7d728ad3f74",
-        "order": 3,
+        "order": 1,
         "disp": false,
-        "width": "6",
+        "width": "24",
         "collapse": false,
         "className": ""
     },
@@ -169,30 +169,13 @@
         "wires": [
             [
                 "4bb6ce89054ef81f",
-                "631aee3b9fdb380f",
                 "61cbb85ceb7f4630",
                 "dd9f880f099daa3d",
                 "b51121a95dbffa77",
-                "52f672262706cd20"
+                "52f672262706cd20",
+                "a616bcf16cd093cd"
             ]
         ]
-    },
-    {
-        "id": "631aee3b9fdb380f",
-        "type": "ui_text",
-        "z": "1d7c90e35933f77a",
-        "group": "a0e49cdaba43d581",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "text",
-        "format": "{{msg.payload.bat_level}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 450,
-        "y": 320,
-        "wires": []
     },
     {
         "id": "4bb6ce89054ef81f",
@@ -201,8 +184,8 @@
         "name": "",
         "statusCode": "200",
         "headers": {},
-        "x": 260,
-        "y": 100,
+        "x": 460,
+        "y": 380,
         "wires": []
     },
     {
@@ -213,7 +196,7 @@
         "group": "ce9b0713c0f40375",
         "order": 2,
         "width": "8",
-        "height": "8",
+        "height": "4",
         "gtype": "gage",
         "title": "Vx",
         "label": "units",
@@ -240,7 +223,7 @@
         "group": "ce9b0713c0f40375",
         "order": 3,
         "width": "8",
-        "height": "8",
+        "height": "4",
         "gtype": "gage",
         "title": "Vy",
         "label": "units",
@@ -267,7 +250,7 @@
         "group": "ce9b0713c0f40375",
         "order": 4,
         "width": "8",
-        "height": "8",
+        "height": "4",
         "gtype": "gage",
         "title": "Vz",
         "label": "units",
@@ -311,7 +294,7 @@
         "group": "27df55ff8de5e7e0",
         "order": 2,
         "width": "24",
-        "height": "12",
+        "height": "4",
         "label": "Drone Altitude (mm)",
         "chartType": "line",
         "legend": "false",
@@ -365,5 +348,22 @@
                 "90994c4aa57a91f3"
             ]
         ]
+    },
+    {
+        "id": "a616bcf16cd093cd",
+        "type": "ui_text",
+        "z": "1d7c90e35933f77a",
+        "group": "a0e49cdaba43d581",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Battery level: ",
+        "format": "{{msg.payload.bat_level}}%",
+        "layout": "row-center",
+        "className": "",
+        "x": 470,
+        "y": 320,
+        "wires": []
     }
 ]
