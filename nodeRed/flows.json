@@ -1,0 +1,369 @@
+[
+    {
+        "id": "1d7c90e35933f77a",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "713bc7d728ad3f74",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "7b7a1c75732f764a",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "426ee8a4bd14d18e",
+        "type": "ui_spacer",
+        "z": "1d7c90e35933f77a",
+        "name": "spacer",
+        "group": "15ca7801ebff5cf0",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "ce9b0713c0f40375",
+        "type": "ui_group",
+        "name": "Drone Speed",
+        "tab": "713bc7d728ad3f74",
+        "order": 1,
+        "disp": false,
+        "width": "24",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "27df55ff8de5e7e0",
+        "type": "ui_group",
+        "name": "Drone Altitude",
+        "tab": "713bc7d728ad3f74",
+        "order": 2,
+        "disp": false,
+        "width": "24",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a0e49cdaba43d581",
+        "type": "ui_group",
+        "name": "Battery level",
+        "tab": "713bc7d728ad3f74",
+        "order": 3,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "612c22cb29bc9803",
+        "type": "http in",
+        "z": "1d7c90e35933f77a",
+        "name": "",
+        "url": "/navdata",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 180,
+        "wires": [
+            [
+                "4bb6ce89054ef81f",
+                "631aee3b9fdb380f",
+                "61cbb85ceb7f4630",
+                "dd9f880f099daa3d",
+                "b51121a95dbffa77",
+                "52f672262706cd20"
+            ]
+        ]
+    },
+    {
+        "id": "631aee3b9fdb380f",
+        "type": "ui_text",
+        "z": "1d7c90e35933f77a",
+        "group": "a0e49cdaba43d581",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload.bat_level}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 450,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4bb6ce89054ef81f",
+        "type": "http response",
+        "z": "1d7c90e35933f77a",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 260,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "61cbb85ceb7f4630",
+        "type": "ui_gauge",
+        "z": "1d7c90e35933f77a",
+        "name": "",
+        "group": "ce9b0713c0f40375",
+        "order": 2,
+        "width": "8",
+        "height": "8",
+        "gtype": "gage",
+        "title": "Vx",
+        "label": "units",
+        "format": "{{msg.payload.vx/100}}",
+        "min": 0,
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 450,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "dd9f880f099daa3d",
+        "type": "ui_gauge",
+        "z": "1d7c90e35933f77a",
+        "name": "",
+        "group": "ce9b0713c0f40375",
+        "order": 3,
+        "width": "8",
+        "height": "8",
+        "gtype": "gage",
+        "title": "Vy",
+        "label": "units",
+        "format": "{{msg.payload.vy/100}}",
+        "min": 0,
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 450,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "b51121a95dbffa77",
+        "type": "ui_gauge",
+        "z": "1d7c90e35933f77a",
+        "name": "",
+        "group": "ce9b0713c0f40375",
+        "order": 4,
+        "width": "8",
+        "height": "8",
+        "gtype": "gage",
+        "title": "Vz",
+        "label": "units",
+        "format": "{{msg.payload.vz/100}}",
+        "min": 0,
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 450,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "8c2961918fb30b69",
+        "type": "ui_text",
+        "z": "1d7c90e35933f77a",
+        "group": "ce9b0713c0f40375",
+        "order": 1,
+        "width": "24",
+        "height": "1",
+        "name": "",
+        "label": "Drone Speed Dashboard",
+        "format": "",
+        "layout": "row-center",
+        "className": "",
+        "x": 510,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "90994c4aa57a91f3",
+        "type": "ui_chart",
+        "z": "1d7c90e35933f77a",
+        "name": "",
+        "group": "27df55ff8de5e7e0",
+        "order": 2,
+        "width": "24",
+        "height": "12",
+        "label": "Drone Altitude (mm)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 680,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "52f672262706cd20",
+        "type": "function",
+        "z": "1d7c90e35933f77a",
+        "name": "altitude",
+        "func": "return {\"payload\": msg.payload.altitude};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 260,
+        "wires": [
+            [
+                "90994c4aa57a91f3"
+            ]
+        ]
+    }
+]
