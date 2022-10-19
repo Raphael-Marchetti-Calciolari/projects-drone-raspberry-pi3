@@ -6,11 +6,16 @@ from dronePyGame import DronePyGame
 
 drone = ARDrone()
 drone.send(at.CONFIG('general:navdata_demo', True))
+print("INICIO")
+print(f"Drone ready wait: {drone.navdata_ready.wait()}")
+time.sleep(5)
+
 landed_flag = False
 
 try:
     print('Main program')
     dronePyGame = DronePyGame()
+    print("CARALHO")
     dronePyGame.captureInput()
     
     # sample(drone)
