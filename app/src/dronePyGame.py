@@ -124,7 +124,7 @@ class DronePyGame:
                     self.drone.hover()
 
                 # Debug logs
-                print(f"F={pressed_keys[self.forwardKeyBind] * self.speed} B={pressed_keys[self.backwardKeyBind] * self.speed} L={pressed_keys[self.leftKeyBind] * self.speed} R={pressed_keys[self.rightKeyBind] * self.speed} U={pressed_keys[self.upKeyBind] * self.speed} D={pressed_keys[self.downKeyBind] * self.speed} CW={pressed_keys[self.cwKeyBind] * self.speed} CCW={pressed_keys[self.ccwKeyBind] * self.speed}")
+                # print(f"F={pressed_keys[self.forwardKeyBind] * self.speed} B={pressed_keys[self.backwardKeyBind] * self.speed} L={pressed_keys[self.leftKeyBind] * self.speed} R={pressed_keys[self.rightKeyBind] * self.speed} U={pressed_keys[self.upKeyBind] * self.speed} D={pressed_keys[self.downKeyBind] * self.speed} CW={pressed_keys[self.cwKeyBind] * self.speed} CCW={pressed_keys[self.ccwKeyBind] * self.speed}")
                # pprint(self.drone.navdata)
 
             pygame.display.flip()
