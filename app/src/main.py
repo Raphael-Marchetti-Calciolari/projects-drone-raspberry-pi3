@@ -18,7 +18,7 @@ try:
     print('Iniciando programa principal')
     print('Instanciando DronePyGame')
     dronePyGame = DronePyGame(drone)
-    print("CARALHO")
+    print('Iniciando captura de input')
     dronePyGame.captureInput()
     
     # sample(drone)
