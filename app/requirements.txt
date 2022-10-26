@@ -1,2 +1,3 @@
 pyardrone==0.6.1
 pygame==2.1.2
+requests-futures==1.0.0

@@ -1,20 +1,23 @@
-from dis import findlinestarts
 import time
-from pyardrone import ARDrone, at
-from sample import sample
 from dronePyGame import DronePyGame
+from pyardrone import ARDrone, at
 
 drone = ARDrone()
+print('Drone instanciado')
+print('Esperando navdata...')
+drone.navdata_ready.wait()
+print('Configurando navdata')
 drone.send(at.CONFIG('general:navdata_demo', True))
-print("INICIO")
-print(f"Drone ready wait: {drone.navdata_ready.wait()}")
-time.sleep(5)
+print('Aguardando navdata')
+time.sleep(3)
+print(f'Drone navdata pós configuração {drone.navdata.demo.altitude}')
 
 landed_flag = False
 
 try:
-    print('Main program')
-    dronePyGame = DronePyGame()
+    print('Iniciando programa principal')
+    print('Instanciando DronePyGame')
+    dronePyGame = DronePyGame(drone)
     print("CARALHO")
     dronePyGame.captureInput()
     
@@ -41,7 +44,7 @@ except KeyboardInterrupt:
     landed_flag = True
 
 except Exception as e:
-    print(f"Erro: {e}")
+    print(f"Erro: {e.with_traceback()}")
 
 finally:
     if not landed_flag:

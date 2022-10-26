@@ -1,21 +1,16 @@
 from time import sleep
-
 import pygame
 from pyardrone import ARDrone, at
 import json
 from requests_futures.sessions import FuturesSession
 
-
-
 def parse_navdata(navdata):
     parsed_navadata = {
-        "vx": navdata.demo.vx,
-        "vy": navdata.demo.vy,
-        "vz": navdata.demo.vz,
+        "vx": int(navdata.demo.vx),
+        "vy": int(navdata.demo.vy),
         "altitude": navdata.demo.altitude,
         "bat_level": navdata.demo.vbat_flying_percentage
     }
-
     return parsed_navadata
 
 def make_request(session, data):
@@ -24,23 +19,12 @@ def make_request(session, data):
     session.post(url, data=parse_navdata(data))
     print("saiu da request")
 
-
-
-
-
-
 class DronePyGame:
-    def __init__(self, drone: ARDrone = ARDrone()) -> None:
-        drone.send(at.CONFIG('general:navdata_demo', True))
-        sleep(5)
-        print("antes do navdata")
-          # ARRUMAR ESSA MERDA
-
-
-
-        print("antes do pygame")
+    def __init__(self, drone) -> None:
+        print('Iniciando pygame')
         pygame.init()
-        print("depois do pygame")
+        print("Pygame iniciado")
+
         W, H = 320, 240
         self.screen = pygame.display.set_mode((W, H))
         self.clock = pygame.time.Clock()
@@ -63,18 +47,25 @@ class DronePyGame:
         self.ccwKeyBind = pygame.K_q
 
         # Intanciar http session
+        print('Instanciado sessão http')
         self.session = FuturesSession()
+        print('Sessao http iniciada')
+        print('Finalizada instanciação do DronePyGame')
 
+    # def getAltitude(self):
+    #     return self.drone.navdata.demo.altitude
 
     def getBatteryLevel(self):
         return self.drone.navdata.demo.vbat_flying_percentage
 
     def captureInput(self):
+        print('Iniciando captuda de entrada')
         cont = 0
         while self.running:
-
+            # print(self.getAltitude())
             # print(f"Altitude: {self.drone.navdata.demo.altitude}")
-            print(f"PARSED: {parse_navdata(self.drone.navdata)}")
+            # print(f"PARSED: {parse_navdata(self.drone.navdata)}")
+
             if cont >= 50:
                 print("MAKING REQUEST")
                 make_request(self.session, self.drone.navdata)
