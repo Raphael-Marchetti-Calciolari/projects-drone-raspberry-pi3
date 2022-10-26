@@ -17,7 +17,6 @@ def make_request(session, data):
     print(f"Entrou na request -> {parse_navdata(data)}")
     url = "http://localhost:1880/navdata"
     session.post(url, data=parse_navdata(data))
-    print("saiu da request")
 
 class DronePyGame:
     def __init__(self, drone) -> None:
@@ -67,7 +66,7 @@ class DronePyGame:
             # print(f"PARSED: {parse_navdata(self.drone.navdata)}")
 
             if cont >= 50:
-                print("MAKING REQUEST")
+                print("Enviando dados ao node-red")
                 make_request(self.session, self.drone.navdata)
                 cont = 0
             cont += 1
