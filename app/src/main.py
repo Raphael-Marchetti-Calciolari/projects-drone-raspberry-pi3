@@ -20,23 +20,6 @@ try:
     dronePyGame = DronePyGame(drone)
     print('Iniciando captura de input')
     dronePyGame.captureInput()
-    
-    # sample(drone)
-    # drone.navdata_ready.wait()
-
-    # print('Decolando...')
-    # while not drone.state.fly_mask:
-    #     drone.takeoff()
-
-    # print('Decolou!')
-    # time.sleep(5)
-    # print('Pousando...')
-
-    # while drone.state.fly_mask:
-    #     drone.land()
-    #     landed_flag = True
-
-    # print('Pousou!')
 
 except KeyboardInterrupt:
     print('Pouso forçado por interrupção do keyboard')

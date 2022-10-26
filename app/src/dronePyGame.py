@@ -1,7 +1,4 @@
-from time import sleep
 import pygame
-from pyardrone import ARDrone, at
-import json
 from requests_futures.sessions import FuturesSession
 
 def parse_navdata(navdata):
@@ -51,9 +48,6 @@ class DronePyGame:
         print('Sessao http iniciada')
         print('Finalizada instanciação do DronePyGame')
 
-    # def getAltitude(self):
-    #     return self.drone.navdata.demo.altitude
-
     def getBatteryLevel(self):
         return self.drone.navdata.demo.vbat_flying_percentage
 
@@ -61,10 +55,7 @@ class DronePyGame:
         print('Iniciando captuda de entrada')
         cont = 0
         while self.running:
-            # print(self.getAltitude())
-            # print(f"Altitude: {self.drone.navdata.demo.altitude}")
-            # print(f"PARSED: {parse_navdata(self.drone.navdata)}")
-
+            # Sending data
             if cont >= 50:
                 print("Enviando dados ao node-red")
                 make_request(self.session, self.drone.navdata)
@@ -121,10 +112,6 @@ class DronePyGame:
                 else:
                     self.isMoving = False
                     self.drone.hover()
-
-                # Debug logs
-                # print(f"F={pressed_keys[self.forwardKeyBind] * self.speed} B={pressed_keys[self.backwardKeyBind] * self.speed} L={pressed_keys[self.leftKeyBind] * self.speed} R={pressed_keys[self.rightKeyBind] * self.speed} U={pressed_keys[self.upKeyBind] * self.speed} D={pressed_keys[self.downKeyBind] * self.speed} CW={pressed_keys[self.cwKeyBind] * self.speed} CCW={pressed_keys[self.ccwKeyBind] * self.speed}")
-               # pprint(self.drone.navdata)
 
             pygame.display.flip()
             self.clock.tick(50)
