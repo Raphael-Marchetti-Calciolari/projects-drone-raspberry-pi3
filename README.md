@@ -5,7 +5,7 @@ O objetivo inicial do projeto é desenvolver uma forma de controlar um Parrot AR
 O projeto utiliza as bibliotecas [pygame](https://www.pygame.org/), [requests-futures](https://pypi.org/project/requests-futures/) e [pyardrone](https://pypi.org/project/pyardrone/).
 
 ## Funcionamento do Projeto
-O Projeto instancia um ARDrone proveniente da biblioteca pyardrone, esta instanciação só funciona se o ambiente onde o programa está rodando estiver conectado à rede Wifi do drone.
+O Projeto cria uma instância da classe ARDrone proveniente da biblioteca pyardrone. Esta instanciação só funciona se o ambiente onde o programa está rodando estiver conectado à rede Wifi do drone. A biblioteca já faz a configuração básica de IP, protocolos e portas para a comunicação com o drone.
 
 O Programa principal foi contruído de forma que qualquer erro que passe, pare o funcionamento do Drone, através da estrutura try-except-finally, para evitar transtornos.
 
