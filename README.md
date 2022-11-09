@@ -16,8 +16,12 @@ Os gráficos de navdata em tempo real coletados pelo drone são enviados para um
 - Rode o comando ```npm install -g node-red``` (adicione sudo caso seja linux)
 - Rode com o comando ```node-red```
 
-##### Erro ao tentar rodar com npm
-- Procure a instalação do node-red (windows)
+##### Erro ao tentar rodar ```node-red```
+
+![erro](https://user-images.githubusercontent.com/79259612/200924382-a38b0485-8a70-42e1-afdb-ec2e9e4e5625.png)
+
+- Tente com o comando do npx abaixo para uma solução mais rápida.
+- Para solucionar o problema, procure a instalação do node-red (windows)
   - Procure em sua instalação local do npm
   - Busque no ```%appdata%/npm```
   - Adicione o caminho ao node-red no PATH
@@ -33,34 +37,32 @@ Verifique onde o servidor está rodando e acesse o endereço via browser (no nos
 
 Selecione Manage Palete e instale o node-red-dashboard.
 
-![image](https://user-images.githubusercontent.com/79259612/200919554-b917202e-565d-4774-aad2-79a63377d7cd.png)
+![image](https://user-images.githubusercontent.com/79259612/200922821-167ac87e-925c-4c65-ae37-53bc664c31a4.png)
 
 ![image](https://user-images.githubusercontent.com/79259612/200919593-3bc7edab-f8cf-4ded-beea-57b3ffeb692a.png)
 
 
 Após a instalação, clique 2 vezes sobre a aba "Flow 1" e o renomeie para evitar confusões posteriores.
 
-![image](https://user-images.githubusercontent.com/79259612/200918191-7982b90f-e6b3-4867-86df-38c5845c75e3.png)
+![aba](https://user-images.githubusercontent.com/79259612/200923311-e42e3dcf-e923-43f8-b422-dee4574be38e.png)
 
 ![image](https://user-images.githubusercontent.com/79259612/200918261-2d6dc995-6e06-4f48-a7d6-1d6c95800cfd.png)
 
 Selecione a opção import para utilizar o flow do projeto.
 
-![image](https://user-images.githubusercontent.com/79259612/200920020-9b07c57c-9536-4949-b0ff-613a02bd953c.png)
+![image](https://user-images.githubusercontent.com/79259612/200923577-611bc733-118c-4b3a-8337-464b933c85e3.png)
 
 ![image](https://user-images.githubusercontent.com/79259612/200920071-d765e9f6-cff3-4e90-a64e-c941754b2d15.png)
 
-Selecione o arquivo flows deste projeto em /nodeRed
+Selecione o arquivo ```flows``` deste projeto em ```/nodeRed```
 
 ![image](https://user-images.githubusercontent.com/79259612/200920104-3190476d-17ee-4f47-9ad4-4c8601cb1572.png)
 
-Ao importar o novo fluxo, apague o anterior e faça o deploy.
-Acesse o recurso em ```http://127.0.0.1:1880/ui``` e verifique o dashboard.
+Ao importar o novo fluxo, apague o anterior (clique 2 vezes sobre a aba e selecione Delete) e faça o deploy (botão vermelho no canto superior direito).
+
+Acesse o recurso no seu endereço em ```/ui```, no nosso caso ```http://127.0.0.1:1880/ui``` e verifique se o dashboard aparece como na imagem abaixo.
+
 ![image](https://user-images.githubusercontent.com/79259612/200920679-4058e4a9-e8ed-4e59-851f-d0d469bcb9e7.png)
-
-
-
-
 
 
 ## Controle inicial do AR Drone 2.0 através do Raspberry Pi 3
