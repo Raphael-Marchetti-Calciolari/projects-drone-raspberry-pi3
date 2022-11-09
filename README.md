@@ -2,13 +2,14 @@
 
 ## Descrição do Projeto
 O objetivo inicial do projeto é desenvolver uma forma de controlar um Parrot AR Drone 2.0 através de qualquer interface Wifi, utilizaremos a do Raspberry Pi 3.
+O projeto utiliza as bibliotecas [pygame](https://www.google.com), [requests-futures](https://pypi.org/project/requests-futures/) e [pyardrone](https://pypi.org/project/pyardrone/).
 
-### Sobre a conexão com o drone:
+## Conexão com o drone:
 - O Raspberry irá se conectar na rede hosteada pelo drone, no nosso caso _ardrone2_326331_, configurá-lo enviando comandos AT via UDP em sua porta 5556.
 - Gráficos irão exibir a leitura dos dados realizados pelos sensores do drone recebidos pela rede via UDP em sua porta 5554.
 - O vídeo gravado pela câmera do drone que é recebido pela rede via UDP em sua porta 5555 será exibido em tempo real. (Não acessado neste projeto)
 
-### Sobre a visualização dos dados:
+## Visualização dos dados:
 Os gráficos de navdata em tempo real coletados pelo drone são enviados para uma API hospedada no Node-RED exibidos em uma das rotas da API hosteada pelo Raspberry Pi 3.
 
 ### Inicializar o Node-RED
@@ -64,67 +65,33 @@ Acesse o recurso no seu endereço em ```/ui```, no nosso caso ```http://127.0.0.
 
 ![image](https://user-images.githubusercontent.com/79259612/200920679-4058e4a9-e8ed-4e59-851f-d0d469bcb9e7.png)
 
+## Inicialização do programa principal do projeto
+Pré-requisito:
 
-## Controle inicial do AR Drone 2.0 através do Raspberry Pi 3
+- Possuir os arquivos do projeto
+
+Processo:
+- (Opcional) Acesse o venv, disponível para linux no projeto, crie um novo para windows, para acessar o do projeto, rode ```source activate``` em ```ProjetoDroneRaspberryPi3\app\venv\bin```.
+- Abra um terminal em ```\ProjetoDroneRaspberryPi3\app```
+- Rode o comando ```pip install -r requirements.txt```
+- Após instalar as dependências, vá para o local ```\ProjetoDroneRaspberryPi3\app\src```
+- Conecte-se com a rede Wifi do drone e verifique se você recebeu o IP _192.168.0.2_
+- Rode o programa com ```python main.py```.
+
+## Controle do AR Drone 2.0 através do Raspberry Pi 3 - desenvolvido no projeto.
 ### Movimentação por teclado:
   - W - drone se desloca para a frente de onde ele está direcionado
   - S - drone se desloca para trás de onde ele está direcionado
   - A - drone se desloca lateralmente para a esquerda de onde ele está direcionado
   - D - drone se desloca lateralmente para a direita de onde ele está direcionado
-  - Espaço - drone sobe
-  - Shift - drone desce
+  - I - drone sobe
+  - K - drone desce
   - Q - drone gira no sentido anti-horário
   - E - drone gira no sentido horário
-  - T - decolagem do drone (Takeoff)
-  - L - pouso do drone (Land)
+  - RETURN (ENTER) - decolagem do drone (Takeoff)
+  - SPACE - pouso do drone (Land)
 
-### Movimentação por mouse:
-  - Mouse se movimenta horizontalmente - drone gira no sentido correspondente
-  - Mouse se movimenta verticalmente - drone se desloca para frente ou para trás de acordo com a intensidade.
-  - Scroll do mouse - drone sobe (scroll para cima) ou desce (scroll para baixo)
-  - Botão esquerdo - Pousar
-  - Botão direito - Decolar
-
-## API
-- GET ```/navdata?droneId=<id>``` - retorna informações de navdata do drone tais como status, posição e velocidade.
-- GET ```/live?droneId=<id>``` - exibe o vídeo capturado pela câmera do drone em tempo real.
-- GET ```/delivery/status?deliveryId=<id>&droneId=<id>``` - exibe informações relativas ao progresso da entrega tais como, se foi entregue, posição, velocidade e progresso.
-- POST ```/delivery/request?droneId=<id>``` - body data convention:
-  ```
-  {
-    "flight-speed" : "speed in kilometers per second during flight",
-    "height" : "ground distance in centimeters during flight",
-    "position" : "coordinates in x,y and z in centimeters",
-  }
-  ```
-
-## Arquitetura
-O código será desenvolvido seguindo uma interpretação de arquitetura limpa
-
-### Definição padrão
-![Default Definition](https://miro.medium.com/max/1400/1*0u-ekVHFu7Om7Z-VTwFHvg.png)
-
-### Interpretação que será utilizada
-![Reference Definition](https://raw.githubusercontent.com/PropysMaua/ProjetoLPARQ/main/docFiles/BackEnd-Arch.png)
-
-#### Detalhamento
-Entities:
-- Delivery
-- Drone
-- Keyboard
-- Mouse
-
-Features:
-- GetDeliveryStatus
-- RequestDelivery
-- CancelDelivery
-- UpdateDelivery
-- GetLiveData
-- GetNavData
-- KeyboardControlDrone
-- MouseControlDrone
-
-### Membros envolvidos no projeto
+## Membros envolvidos no projeto
 1. **Raphael Marchetti Calciolari** - RA: 19.00828-7
 2. **Martin Ropke** - RA: 19.01592-5
 3. **Guilherme Costa e Souza** - RA: 19.00065-0
