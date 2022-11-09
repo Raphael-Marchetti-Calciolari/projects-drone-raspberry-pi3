@@ -2,7 +2,7 @@
 
 ## Descrição do Projeto
 O objetivo inicial do projeto é desenvolver uma forma de controlar um Parrot AR Drone 2.0 através de qualquer interface Wifi, utilizaremos a do Raspberry Pi 3.
-O projeto utiliza as bibliotecas [pygame](https://www.google.com), [requests-futures](https://pypi.org/project/requests-futures/) e [pyardrone](https://pypi.org/project/pyardrone/).
+O projeto utiliza as bibliotecas [pygame](https://www.pygame.org/), [requests-futures](https://pypi.org/project/requests-futures/) e [pyardrone](https://pypi.org/project/pyardrone/).
 
 ## Conexão com o drone:
 - O Raspberry irá se conectar na rede hosteada pelo drone, no nosso caso _ardrone2_326331_, configurá-lo enviando comandos AT via UDP em sua porta 5556.
