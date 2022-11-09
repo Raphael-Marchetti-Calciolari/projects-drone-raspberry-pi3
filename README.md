@@ -89,6 +89,9 @@ Processo:
 - Conecte-se com a rede Wifi do drone e verifique se você recebeu o IP _192.168.0.2_
 - Rode o programa com ```python main.py```.
 
+## Video funcionamento do projeto
+[video](https://photos.google.com/share/AF1QipMcTcIndOaif6v1FnlJ9ThuYLIombpLSsOZHy99tOkGJtryDkd5cYWfl9oTqSN7AQ/photo/AF1QipP9qZLpLJhazRpsbPgXiWuU8rdPuFk_-lyoUkCN?key=ZkZkN09JbFRDdm9uZ01fMENjX2xyYjJfVVNtelZ3)
+
 ## Controle do AR Drone 2.0 através do Raspberry Pi 3 - desenvolvido no projeto.
 ### Movimentação por teclado:
   - W - drone se desloca para a frente de onde ele está direcionado
