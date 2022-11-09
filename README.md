@@ -1,17 +1,67 @@
 # ProjetoDroneRaspberryPi3
 
 ## Descrição do Projeto
-
-O objetivo inicial do projeto é desenvolver uma forma de controlar um Parrot AR Drone 2.0 através do módulo Wifi do Raspberry Pi 3.
-O objetivo final do projeto é desenvolver uma API no Raspberry Pi 3 que se comunica com o drone e o envia para localizações geográficas específicas simulando entregas e retornando ao ponto de partida.
+O objetivo inicial do projeto é desenvolver uma forma de controlar um Parrot AR Drone 2.0 através de qualquer interface Wifi, utilizaremos a do Raspberry Pi 3.
 
 ### Sobre a conexão com o drone:
-- O Raspberry irá se conectar na rede hosteada pelo drone, configurá-lo enviando comandos AT via UDP em sua porta 5556.
+- O Raspberry irá se conectar na rede hosteada pelo drone, no nosso caso _ardrone2_326331_, configurá-lo enviando comandos AT via UDP em sua porta 5556.
 - Gráficos irão exibir a leitura dos dados realizados pelos sensores do drone recebidos pela rede via UDP em sua porta 5554.
-- O vídeo gravado pela câmera do drone que é recebido pela rede via UDP em sua porta 5555 será exibido em tempo real.
+- O vídeo gravado pela câmera do drone que é recebido pela rede via UDP em sua porta 5555 será exibido em tempo real. (Não acessado neste projeto)
 
 ### Sobre a visualização dos dados:
-Os gráficos de navdata e vídeo em tempo real coletados pelo drone serão exibidos em uma das rotas da API hosteada pelo Raspberry Pi 3.
+Os gráficos de navdata em tempo real coletados pelo drone são enviados para uma API hospedada no Node-RED exibidos em uma das rotas da API hosteada pelo Raspberry Pi 3.
+
+### Inicializar o Node-RED
+#### Instalação via npm
+- Rode o comando ```npm install -g node-red``` (adicione sudo caso seja linux)
+- Rode com o comando ```node-red```
+
+##### Erro ao tentar rodar com npm
+- Procure a instalação do node-red (windows)
+  - Procure em sua instalação local do npm
+  - Busque no ```%appdata%/npm```
+  - Adicione o caminho ao node-red no PATH
+
+#### Rodando via npx
+- Rode o comando ```npx node-red```
+
+### Importando o flow do projeto no node-red
+Ao iniciar o Node-RED seu log será parecido com o abaixo:
+![log-nodered](https://user-images.githubusercontent.com/79259612/200917584-af2ca2e0-c22e-4ab3-bb06-c13f9d1db9d4.png)
+
+Verifique onde o servidor está rodando e acesse o endereço via browser (no nosso caso é ```http://127.0.0.1:1880```)
+
+Selecione Manage Palete e instale o node-red-dashboard.
+
+![image](https://user-images.githubusercontent.com/79259612/200919554-b917202e-565d-4774-aad2-79a63377d7cd.png)
+
+![image](https://user-images.githubusercontent.com/79259612/200919593-3bc7edab-f8cf-4ded-beea-57b3ffeb692a.png)
+
+
+Após a instalação, clique 2 vezes sobre a aba "Flow 1" e o renomeie para evitar confusões posteriores.
+
+![image](https://user-images.githubusercontent.com/79259612/200918191-7982b90f-e6b3-4867-86df-38c5845c75e3.png)
+
+![image](https://user-images.githubusercontent.com/79259612/200918261-2d6dc995-6e06-4f48-a7d6-1d6c95800cfd.png)
+
+Selecione a opção import para utilizar o flow do projeto.
+
+![image](https://user-images.githubusercontent.com/79259612/200920020-9b07c57c-9536-4949-b0ff-613a02bd953c.png)
+
+![image](https://user-images.githubusercontent.com/79259612/200920071-d765e9f6-cff3-4e90-a64e-c941754b2d15.png)
+
+Selecione o arquivo flows deste projeto em /nodeRed
+
+![image](https://user-images.githubusercontent.com/79259612/200920104-3190476d-17ee-4f47-9ad4-4c8601cb1572.png)
+
+Ao importar o novo fluxo, apague o anterior e faça o deploy.
+Acesse o recurso em ```http://127.0.0.1:1880/ui``` e verifique o dashboard.
+![image](https://user-images.githubusercontent.com/79259612/200920679-4058e4a9-e8ed-4e59-851f-d0d469bcb9e7.png)
+
+
+
+
+
 
 ## Controle inicial do AR Drone 2.0 através do Raspberry Pi 3
 ### Movimentação por teclado:
