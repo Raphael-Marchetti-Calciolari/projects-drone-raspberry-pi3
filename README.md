@@ -90,7 +90,9 @@ Processo:
 - Rode o programa com ```python main.py```.
 
 ## Video funcionamento do projeto
-[video](https://photos.google.com/share/AF1QipMcTcIndOaif6v1FnlJ9ThuYLIombpLSsOZHy99tOkGJtryDkd5cYWfl9oTqSN7AQ/photo/AF1QipP9qZLpLJhazRpsbPgXiWuU8rdPuFk_-lyoUkCN?key=ZkZkN09JbFRDdm9uZ01fMENjX2xyYjJfVVNtelZ3)
+
+- [Video no One Drive](https://photos.google.com/share/AF1QipMcTcIndOaif6v1FnlJ9ThuYLIombpLSsOZHy99tOkGJtryDkd5cYWfl9oTqSN7AQ/photo/AF1QipP9qZLpLJhazRpsbPgXiWuU8rdPuFk_-lyoUkCN?key=ZkZkN09JbFRDdm9uZ01fMENjX2xyYjJfVVNtelZ3)
+- [Video deste repositório (baixe para assistir)](https://github.com/raphazik4/ProjetoDroneRaspberryPi3/blob/main/Project_Sample_Video.mp4)
 
 ## Controle do AR Drone 2.0 através do Raspberry Pi 3 - desenvolvido no projeto.
 ### Movimentação por teclado:
